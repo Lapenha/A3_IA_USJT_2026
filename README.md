@@ -88,5 +88,5 @@ python -m notebook
 Depois, abra:
 
 ```text
-A3_fraude_rede_neural.ipynb
+A3_classifier_committee.ipynb
 ```
