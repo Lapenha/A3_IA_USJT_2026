@@ -1,27 +1,27 @@
-# Projeto A3 - Comite de Classificadores
+# Projeto A3 - Comitê de Classificadores
 
-Universidade Sao Judas Tadeu  
-Disciplina: Inteligencia Artificial
+Universidade São Judas Tadeu  
+Disciplina: Inteligência Artificial
 
 ## Base de dados
 
-Este projeto utiliza a base `synthetic_fraud_dataset.csv`, uma base sintetica de transacoes financeiras para deteccao de fraude.
+Este projeto utiliza a base `synthetic_fraud_dataset.csv`, uma base sintética de transações financeiras para detecção de fraude.
 
-A base possui 10.000 registros e 10 colunas. Cada linha representa uma transacao, com informacoes sobre valor, tipo da transacao, categoria do comerciante, pais, horario e escores de risco do dispositivo e do IP.
+A base possui 10.000 registros e 10 colunas. Cada linha representa uma transação, com informações sobre valor, tipo da transação, categoria do comerciante, país, horário e escores de risco do dispositivo e do IP.
 
-## Problema de classificacao
+## Problema de classificação
 
-O objetivo e prever se uma transacao e fraudulenta.
+O objetivo é prever se uma transação é fraudulenta.
 
 - Target: `is_fraud`
-- Classe 0: transacao nao fraudulenta
-- Classe 1: transacao fraudulenta
+- Classe 0: transação não fraudulenta
+- Classe 1: transação fraudulenta
 
-A base e desbalanceada: aproximadamente 95% das transacoes sao legitimas e 5% sao fraudes. Por isso, alem da acuracia, tambem sao avaliadas metricas como precisao, recall e F1-score.
+A base é desbalanceada: aproximadamente 95% das transações são legítimas e 5% são fraudes. Por isso, além da acurácia, também são avaliadas métricas como precisão, recall e F1-score.
 
 ## Features utilizadas
 
-As colunas `transaction_id` e `user_id` foram removidas por serem identificadores. As features utilizadas no modelo sao:
+As colunas `transaction_id` e `user_id` foram removidas por serem identificadores. As features utilizadas no modelo são:
 
 - `amount`
 - `transaction_type`
@@ -35,44 +35,44 @@ As colunas `transaction_id` e `user_id` foram removidas por serem identificadore
 
 O notebook realiza:
 
-- verificacao de dimensoes, tipos de dados e valores ausentes;
-- analise exploratoria inicial;
-- separacao entre features e target;
-- divisao estratificada em treino e teste;
-- imputacao de valores ausentes, mesmo que a base atual nao tenha nulos;
-- padronizacao das variaveis numericas;
-- codificacao one-hot das variaveis categoricas;
-- balanceamento do conjunto de treino por oversampling simples da classe minoritaria.
+- verificação de dimensões, tipos de dados e valores ausentes;
+- análise exploratória inicial;
+- separação entre features e target;
+- divisão estratificada em treino e teste;
+- imputação de valores ausentes, mesmo que a base atual não tenha nulos;
+- padronização das variáveis numéricas;
+- codificação one-hot das variáveis categóricas;
+- balanceamento do conjunto de treino por oversampling simples da classe minoritária.
 
 ## Modelo de rede neural
 
 A rede neural foi implementada com `MLPClassifier`, da biblioteca Scikit-learn.
 
-Configuracao inicial:
+Configuração inicial:
 
-- camadas ocultas: 64 e 32 neuronios;
-- funcao de ativacao: ReLU;
+- camadas ocultas: 64 e 32 neurônios;
+- função de ativação: ReLU;
 - otimizador: Adam;
 - parada antecipada: ativada;
-- maximo de iteracoes: 300.
+- máximo de iterações: 300.
 
-O modelo e avaliado com:
+O modelo é avaliado com:
 
-- acuracia;
-- precisao;
+- acurácia;
+- precisão;
 - recall;
 - F1-score;
-- matriz de confusao;
-- relatorio de classificacao.
+- matriz de confusão;
+- relatório de classificação.
 
-## Proximas etapas
+## Próximas etapas
 
-O notebook ja possui secoes `TODO` para completar o restante do trabalho:
+O notebook já possui seções `TODO` para completar o restante do trabalho:
 
 - treinar pelo menos 3 classificadores individuais;
-- construir o comite por votacao;
+- construir o comitê por votação;
 - comparar os resultados dos modelos;
-- finalizar discussao e conclusao.
+- finalizar discussão e conclusão.
 
 ## Como executar
 
