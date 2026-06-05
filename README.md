@@ -62,6 +62,8 @@ O comitê foi construído com `VotingClassifier` usando votação majoritária. 
 
 O notebook gera uma tabela comparativa entre os três modelos individuais e o comitê. Nesta base sintética, os modelos apresentaram desempenho perfeito nas métricas avaliadas, o que indica que as variáveis de risco separam muito bem as classes.
 
+Também foi incluído um teste complementar removendo `device_risk_score` e `ip_risk_score`. Esse teste mostra que o desempenho cai quando os escores de risco são retirados, reforçando que essas variáveis carregam grande parte do poder preditivo da base.
+
 ## Como executar
 
 No PowerShell, dentro desta pasta:
