@@ -31,48 +31,36 @@ As colunas `transaction_id` e `user_id` foram removidas por serem identificadore
 - `device_risk_score`
 - `ip_risk_score`
 
-## Pre-processamento
+## Pré-processamento
 
 O notebook realiza:
 
 - verificação de dimensões, tipos de dados e valores ausentes;
 - análise exploratória inicial;
 - separação entre features e target;
-- divisão estratificada em treino e teste;
-- imputação de valores ausentes, mesmo que a base atual não tenha nulos;
+- divisão estratificada em treino e teste, usando 80% para treino e 20% para teste;
+- imputação de valores ausentes;
 - padronização das variáveis numéricas;
 - codificação one-hot das variáveis categóricas;
 - balanceamento do conjunto de treino por oversampling simples da classe minoritária.
 
-## Modelo de rede neural
+## Modelos individuais
 
-A rede neural foi implementada com `MLPClassifier`, da biblioteca Scikit-learn.
+Foram implementados e avaliados três classificadores:
 
-Configuração inicial:
+- Rede Neural (`MLPClassifier`)
+- Árvore de Decisão (`DecisionTreeClassifier`)
+- Regressão Logística (`LogisticRegression`)
 
-- camadas ocultas: 64 e 32 neurônios;
-- função de ativação: ReLU;
-- otimizador: Adam;
-- parada antecipada: ativada;
-- máximo de iterações: 300.
+Cada modelo foi treinado individualmente e avaliado com acurácia, precisão, recall, F1-score, relatório de classificação e matriz de confusão.
 
-O modelo é avaliado com:
+## Comitê de classificadores
 
-- acurácia;
-- precisão;
-- recall;
-- F1-score;
-- matriz de confusão;
-- relatório de classificação.
+O comitê foi construído com `VotingClassifier` usando votação majoritária. A estratégia combina modelos com características diferentes para produzir uma decisão final mais robusta.
 
-## Próximas etapas
+## Resultados
 
-O notebook já possui seções `TODO` para completar o restante do trabalho:
-
-- treinar pelo menos 3 classificadores individuais;
-- construir o comitê por votação;
-- comparar os resultados dos modelos;
-- finalizar discussão e conclusão.
+O notebook gera uma tabela comparativa entre os três modelos individuais e o comitê. Nesta base sintética, os modelos apresentaram desempenho perfeito nas métricas avaliadas, o que indica que as variáveis de risco separam muito bem as classes.
 
 ## Como executar
 
